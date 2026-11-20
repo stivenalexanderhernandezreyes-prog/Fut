@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b100d">
+<title>MATCHUP — Compite, conecta, disfruta</title>
+<style>
+:root{--bg:#090d0a;--panel:#111a13;--green:#b8ff35;--muted:#a8b3a8;--line:#263328}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -10%,#20351b 0,#090d0a 42%);color:#f4f7f1;font:16px system-ui,Arial,sans-serif}
+header{padding:22px 18px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:#090d0aee;backdrop-filter:blur(12px);z-index:2}
+.brand{font-weight:950;letter-spacing:1px;font-size:25px}.brand span{color:var(--green)}.tag{font-size:10px;color:var(--muted);letter-spacing:2px}
+main{max-width:760px;margin:auto;padding:20px 16px 100px}.hero{padding:24px 18px;border:1px solid #38512c;border-radius:22px;background:linear-gradient(145deg,#172416,#0d130e 70%);text-align:center}
+.ball{font-size:64px;filter:drop-shadow(0 0 16px #9dff2780)}h1{font-size:32px;line-height:1.05;margin:8px 0}h1 span{color:var(--green)}p{color:var(--muted);line-height:1.5}.btn{border:0;border-radius:12px;padding:13px 17px;background:var(--green);color:#10170b;font-weight:850;font-size:15px;cursor:pointer}.btn.secondary{background:#1b281d;color:#e9f5e7;border:1px solid #38513c}
+.section-title{font-size:19px;margin:25px 0 12px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.tile,.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}.tile b{display:block;margin:7px 0}.tile small{color:var(--muted)}.emoji{font-size:27px}
+.card{margin-top:12px}.pill{display:inline-block;color:var(--green);background:#24351c;padding:5px 9px;border-radius:30px;font-size:11px;font-weight:800}
+nav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;gap:5px;padding:10px;background:#090d0af2;border-top:1px solid var(--line);z-index:3}
+nav button{flex:1;max-width:145px;background:transparent;color:#aab6a8;border:0;padding:9px 4px;border-radius:10px;font-size:12px}nav button.active{color:var(--green);background:#1b291b}
+input,select{width:100%;padding:13px;border-radius:10px;border:1px solid #344337;background:#0b110c;color:white;margin:7px 0 12px}
+.view{display:none}.view.active{display:block}.muted{color:var(--muted);font-size:13px}.match{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:center}.match strong{font-size:14px}.match span{font-size:22px;color:var(--green);font-weight:900}
+footer{text-align:center;color:#718071;font-size:11px;margin-top:28px}
+@media(max-width:420px){.grid{grid-template-columns:1fr 1fr}.brand{font-size:22px}h1{font-size:28px}}
+</style>
+</head>
+<body>
+<header><div><div class="brand">MATCH<span>UP</span></div><div class="tag">COMPITE · CONECTA · DISFRUTA</div></div><span class="pill">DEMO</span></header>
+<main>
+<section id="inicio" class="view active">
+<div class="hero"><div class="ball">⚽</div><h1>EL FÚTBOL<br><span>TE CONECTA</span></h1><p>Encuentra equipos cerca de ti, organiza partidos y acepta nuevos retos.</p><button class="btn" onclick="show('retos')">Explorar retos</button></div>
+<h2 class="section-title">¿Qué quieres hacer?</h2>
+<div class="grid">
+<div class="tile"><div class="emoji">🛡️</div><b>Crear equipo</b><small>Arma tu equipo y reúne jugadores.</small></div>
+<div class="tile"><div class="emoji">🔥</div><b>Retar equipos</b><small>Publica un desafío y juega.</small></div>
+<div class="tile"><div class="emoji">📍</div><b>Buscar cerca</b><small>Descubre equipos de tu zona.</small></div>
+<div class="tile"><div class="emoji">🏆</div><b>Clasificaciones</b><small>Compite por subir de posición.</small></div>
+</div>
+<div class="card"><span class="pill">PARTIDOS LOCALES</span><h3>Tu próximo partido empieza aquí</h3><p class="muted">Selecciona tu municipio y encuentra personas con ganas de jugar.</p><button class="btn secondary" onclick="show('ubicacion')">Configurar ubicación</button></div>
+</section>
+<section id="retos" class="view"><h2>Retos y partidos</h2><p>Publica un partido para que otros equipos puedan aceptar el desafío.</p><div class="card"><label>Nombre de tu equipo</label><input placeholder="Ej. Los Tigres"><label>Deporte</label><select><option>Fútbol 11</option><option>Fútbol 7</option><option>Fútbol sala</option></select><label>Municipio o distrito</label><input placeholder="Ej. Ilobasco"><label>Fecha y hora</label><input type="datetime-local"><label>Cancha o lugar público</label><input placeholder="Nombre de la cancha"><button class="btn" onclick="alert('Demo visual: este reto todavía no se publica ni se guarda.')">Vista previa del reto</button><p class="muted">Demostración: los retos no se publican todavía.</p></div></section>
+<section id="ubicacion" class="view"><h2>Encuentra equipos cerca</h2><div class="card"><label>País</label><input value="El Salvador" readonly><label>Departamento</label><select><option>Cabañas</option><option>San Miguel</option><option>San Salvador</option><option>La Libertad</option></select><label>Municipio o distrito</label><input placeholder="Ej. Ilobasco"><button class="btn" onclick="alert('En la versión real se buscarán equipos de esta zona.')">Guardar ubicación</button></div><p class="muted">Por seguridad, comparte lugares públicos para jugar, no tu dirección de casa.</p></section>
+<section id="live" class="view"><h2>MATCHUP LIVE</h2><p>Fútbol profesional: partidos, resultados y competiciones.</p><div class="card"><span class="pill">EJEMPLO VISUAL · NO EN VIVO</span><div class="match"><strong>BARCELONA</strong><span>VS</span><strong>REAL MADRID</strong></div><p class="muted">Los marcadores reales se conectarán en una versión futura.</p></div><div class="grid"><div class="tile">🏆<b>LaLiga</b><small>Clasificación y calendario</small></div><div class="tile">🌍<b>Champions</b><small>Partidos y resultados</small></div></div></section>
+<section id="perfil" class="view"><h2>Tu perfil MATCHUP</h2><div class="card"><label>Correo electrónico</label><input type="email" placeholder="tu correo"><button class="btn" onclick="alert('Demo visual: todavía no se envían códigos de verificación.')">Probar registro</button><p class="muted">El registro real con código por correo aún no está conectado.</p></div></section>
+<footer>Prototipo visual de MATCHUP · No es una aplicación publicada ni guarda datos.</footer>
+</main>
+<nav>
+<button class="active" onclick="show('inicio',this)">⌂ Inicio</button><button onclick="show('retos',this)">⚽ Retos</button><button onclick="show('ubicacion',this)">⌖ Cerca</button><button onclick="show('live',this)">▣ Live</button><button onclick="show('perfil',this)">♙ Perfil</button>
+</nav>
+<script>
+function show(id,btn){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');else{const map={inicio:0,retos:1,ubicacion:2,live:3,perfil:4};document.querySelectorAll('nav button')[map[id]].classList.add('active')}window.scrollTo(0,0)}
+</script>
+</body></html>
